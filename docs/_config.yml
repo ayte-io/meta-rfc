@@ -1,0 +1,10 @@
+title: Ayte RFC Directory
+github_username: ayte-io
+theme: minima
+plugins: []
+defaults:
+  - scope:
+      path: ''
+    values:
+      layout: page
+

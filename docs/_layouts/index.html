@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<div class="container">
+  {%- if page.title -%}
+    <h1>{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {%- assign empty_array = '' | split: '' -%}
+  {%- assign descendants = page.descendants | default: empty_array -%}
+  {%- assign path_prefix = page.dir -%}
+  {%- for candidate in site.pages -%}
+    {%- assign extension = candidate.path | split: '.' | last -%}
+    {%- if extension == 'md' and candidate.unlisted != true and candidate.path != page.path -%}
+      {%- assign absolute_path = candidate.path | prepend: '/' -%}
+      {%- assign relative_path = absolute_path | replace_first: path_prefix, '' -%}
+      {%- assign chunks = relative_path | replace_first: '/index.md', '' | replace_first: '.md', '' | split: '/' -%}
+      {%- assign chunks_size = chunks | size -%}
+      {%- if relative_path != absolute_path and 1 == chunks_size -%}
+        {%- assign descendants = descendants | concat: chunks | uniq -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if descendants -%}
+    <h2>Contents</h2>
+
+    <ol>
+      {%- for descendant in descendants -%}
+        {%- assign path = page.dir | remove_first: '/' | append: descendant | append: '.md' -%}
+        {%- assign target = site.pages | where: 'path', path | first -%}
+        {%- unless target -%}
+          {%- assign path = page.dir | remove_first: '/' | append: descendant | append: '/index.md' -%}
+          {%- assign target = site.pages | where: 'path', path | first -%}
+        {%- endunless -%}
+        {%- if target -%}
+        <li>
+          {%- include component/link.liquid page=target -%}
+        </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ol>
+  {%- endif -%}
+</div>

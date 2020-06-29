@@ -1,0 +1,8 @@
+<a
+        href="{{ include.url | relative_url | remove: '.html' }}"
+        {%- if include.classes -%}
+            class="{{ include.classes }}"
+        {%- endif -%}
+>
+    {{- include.title | escape -}}
+</a>

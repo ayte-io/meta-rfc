@@ -1,0 +1,5 @@
+{%- assign _classes = 'waves-effect waves-light' -%}
+{%- if include.classes -%}
+    {%- assign _classes = _classes | append: ' ' | append: include.classes %}
+{%- endif -%}
+{% include component/link.liquid page=include.page classes=_classes title=include.title url=include.url %}

@@ -1,0 +1,184 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="{{ '/assets/icon.png' | relative_url }}"/>
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+    {%- include google-analytics.html -%}
+  {%- endif -%}
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      background: #fff;
+    }
+
+    a {
+      color: #000;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: #000;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+    }
+
+    h2 {
+      font-size: 2.8rem;
+    }
+
+    h3 {
+      font-size: 2.4rem;
+    }
+
+    h4 {
+      font-size: 2rem;
+    }
+
+    h5 {
+      font-size: 1.6rem;
+    }
+
+    .container {
+      max-width: 800px;
+    }
+
+    .ayte-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ayte-nav-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+
+    .ayte-nav-links {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow: auto;
+    }
+
+    .ayte-nav-links a {
+      color: #fff;
+      display: block;
+      font-size: 1.3rem;
+      white-space: nowrap;
+    }
+
+    .ayte-nav-links a:visited {
+      color: #fff;
+    }
+
+    nav {
+      height: auto;
+      box-shadow: none;
+      background-color: #ddd;
+    }
+
+    nav .brand-logo {
+      left: 0 !important;
+      transform: none !important;
+      position: relative !important;
+      display: block;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    nav .brand-logo:hover {
+      background-color: rgba(0,0,0,0.1)
+    }
+
+    main {
+      flex: 1 1 auto;
+      font-size: 1.3rem;
+    }
+
+    footer {
+      margin-top: 75px;
+    }
+
+    .page-footer {
+      padding: 10px 0;
+      background-color: #ddd;
+    }
+
+    .page-footer .row {
+      margin-bottom: 0;
+    }
+
+    .ayte-footer-wrapper {
+      margin-bottom: 0 !important;
+      font-size: 1.4rem;
+      padding-top: 0.35rem;
+      color: #000;
+    }
+
+    .ayte-footer-wrapper a, .ayte-footer-wrapper a:visited {
+      color: #000;
+    }
+
+    .ayte-footer-wrapper a:hover {
+      text-decoration: underline;
+    }
+
+    .ayte-footer-brand {
+      font-size: 2.1rem;
+      margin-top: -0.7rem;
+    }
+
+    .ayte-footer-links {
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      h1, h2, h3, h4, h5, h6 {
+        word-break: break-all;
+      }
+
+      .ayte-footer-link-divider {
+        display: none;
+      }
+
+      .ayte-footer-wrapper a {
+        display: block;
+      }
+
+      .nav .brand-logo {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .ayte-nav-container {
+        flex-direction: column;
+      }
+
+      .ayte-footer-links {
+        text-align: left;
+      }
+    }
+  </style>
+</head>

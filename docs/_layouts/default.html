@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  {% assign root = site.pages | where: 'path', 'index.md' | first %}
+
+  {%- include head.html -%}
+
+  <body>
+    <div class="ayte-container">
+
+    {%- include header.html -%}
+
+    <main aria-label="Content">
+      {{ content }}
+    </main>
+
+    {%- include footer.html -%}
+
+    </div>
+  </body>
+
+</html>

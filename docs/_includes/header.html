@@ -1,0 +1,36 @@
+<header role="banner">
+{%- assign default_paths = site.pages | where_exp: 'cursor', 'cursor.dir == page.dir' | where_exp: 'cursor', 'cursor.name != page.name' | map: "path" -%}
+{%- assign page_paths = site.header_pages | default: default_paths -%}
+
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container">
+        <div class="ayte-nav-container">
+          {%- include component/nav/link.liquid page=root classes='brand-logo' title=site.title -%}
+
+          <ul class="ayte-nav-links">
+            {%- assign aggregate_path = '' -%}
+            {%- assign segments = page.dir | split: '/' | where_exp: 'segment', 'segment != ""' -%}
+            {%- for segment in segments -%}
+              {%- assign aggregate_path = aggregate_path | append: segment | append: '/' -%}
+              {%- assign page_path = aggregate_path | append: 'index.md' -%}
+              {%- assign cursor = site.pages | where: 'path', page_path | first -%}
+              {%- if cursor and cursor.title -%}
+                <li>
+                  {%- assign _title = cursor.title | prepend: '/ ' -%}
+                  {%- include component/nav/link.liquid page=cursor title=_title -%}
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+            {%- unless page.path contains 'index.md' -%}
+              <li>
+                {%- assign _title = page.title | prepend: '/ ' -%}
+                {%- include component/nav/link.liquid page=page title=_title -%}
+              </li>
+            {%- endunless -%}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
