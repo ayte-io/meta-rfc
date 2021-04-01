@@ -2,6 +2,7 @@ title: Ayte RFC Directory
 github_username: ayte-io
 theme: minima
 plugins: []
+markdown: kramdown
 defaults:
   - scope:
       path: ''

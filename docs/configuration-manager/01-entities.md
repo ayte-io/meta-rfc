@@ -1,16 +1,14 @@
 ---
-title: 'RFC: Configuration Manager'
+title: Entities
 ---
 
-## Primitives
+## Host
 
-### Host
-
-Host is a single machine that is managed by configuration manager. It
+Host is a single machine that is controlled by configuration manager. It
 doesn't matter if machine is a container, virtual machine or bare metal
 server, or if such machines are nested into each other.
 
-### Cluster
+## Cluster
 
 Cluster is a collection of hosts that serve same role. From 
 configuration manager's perspective, "same role" is a currently 
@@ -25,39 +23,59 @@ Cluster term may be useless on low-level operations like kernel
 configuration, but moving onto higher level cluster starts to mean more
 and more.
 
-### Role
+## Role
 
 ?
 
-### Fleet
+## Scenario
+
+## Fleet
 
 Fleet is a collection of all hosts configuration manager operates under
 current environment. 
 
+### Discovery
 
-- host
-- cluster
-- role
-- fleet
-- resource
-- action
-- event
-- listeners
-- reports
-- query
-- semaphore
-- condition
-- environments (i.e. fleets discriminator)
+## Extension
 
-- resources and actions
-- conditions
-- cluster querying
-- monitoring & taking actions
-- push/pull/federation
-- rolling updates & locks
-- rollbacks
-- history
-- one-time ad-hoc actions that do not go into repository
-- add history entries
+## Plugin
 
-- cluster update, which is not a particular host update (e.g. removing distributed system node - who and where should run "node left" tasks?)
+## Resource
+
+## Action
+
+## Condition
+
+## Event
+
+## Listeners
+
+## Reports
+
+## Reaction
+
+## Run selector
+
+E.g. run only on nodes that have failed last time
+
+## Variable
+
+## Probe
+
+## Ad-hoc scenario
+
+E.g. fix that database
+
+## Scheduling & limiting concurrent runs
+
+## Distributed concurrency primitives
+
+### Semaphore
+
+### Lock (semaphore of one)
+
+### Barrier
+
+### Singleton (+ Barrier)
+
+May be integrated with Barrier.
